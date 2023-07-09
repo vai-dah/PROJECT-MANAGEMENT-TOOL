@@ -1,0 +1,400 @@
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+
+body{
+	margin: 0;
+	font-family: 'Muli';
+		background-color: #F7F0F0;
+
+	}
+strong { vertical-align: bottom; 
+}
+
+header{
+	background-color: #484349;
+	height: 175px;
+	text-align: center;
+
+	padding: 20px 40px;
+
+}
+.title{
+	color:#D0D0D0;
+		text-align: left;
+}
+.project-item, header img{
+	cursor: pointer;
+}
+
+header img{
+}
+header .icon-back{
+	display: block;
+	float: left;
+	margin-top: 25px;
+}
+main{
+	padding-bottom: 50px;
+	background-color: #F7F0F0;
+	padding-left: 50px;
+}
+.green-line{
+	width: 100%;
+	height: 10px;
+	background-color:#109648;
+}
+.project-card{
+	width: 300px;
+	height: 175px;
+	background-color: #18A999;
+	display: inline-block;
+	vertical-align: middle;
+	border-radius: 5px;
+	padding-left: 10px;
+	box-shadow: 0 5px 18px 1px rgba(0,0,0,0.28);
+	
+}
+.project-card h2{
+	color: white;
+}
+.plant{
+	display: inline-block;
+	padding-right: 20px;
+	padding-left: 80px;
+
+}
+.plant img{
+	width: 80px
+}
+.row{
+	margin-top: 70px;
+}
+/*.firstrow{
+	margin-top: 30px;
+}
+*/
+/***********project Dash***************/
+.component{
+	width: 500px;
+	height: 200px;
+	/* Rectangle 3 Copy 2: */
+box-shadow: 0 1px 15px 1px rgba(0,0,0,0.18);
+border-radius: 3px;
+background-color: white;
+color:#484349;
+
+}
+.main-plant{
+	padding-left: 130px;
+	height: 250px;
+	cursor: none;
+}
+.main-plant img{
+	width: 110px;
+}
+.next-step{
+	background-color: #18A999;
+	width: 700px;
+	height:250px;
+	padding-left: 20px;
+	padding-top: 2px;
+	color: white;
+	position: relative;
+
+}
+.next-step .water{
+position: absolute;
+top:20;
+right:20;
+color: #007366;}
+.next-step h2{
+	margin-top: 10px;
+}
+.next-step .email{
+	display: inline-block;
+}
+.next-step .email img{
+	width: 300px;
+	margin-top: 15px;
+}
+
+.encourage{
+	float: right;
+	position: relative;
+	height: 150px;
+	width: 200px;
+	display: inline-block;
+}
+#encourage-btn{
+/*	display: none;
+*/		background:#007366;
+	border: none;
+	  position: absolute;
+  	bottom: 20;
+  	right: 100;
+/*  	padding: 10px 40px;
+*/  	box-shadow: 0 2px 0 0 rgba(0,0,0,0.50);
+  	border-radius: 3px;
+  	font-weight: 600;
+  	width: 160px;
+  	padding: 10px;
+
+}
+.next-step .load{
+	display: none;
+	background:url('../assets/icons/ellipsis.gif') no-repeat right center;
+	background-size: 30%;
+	background-position:50% 60%;
+
+
+
+		border: none;
+	  position: absolute;
+  	bottom: 20;
+  	right: 100;
+/*  	padding: 10px 40px;
+*/  	box-shadow: 0 2px 0 0 rgba(0,0,0,0.50);
+  	border-radius: 3px;
+  	font-weight: 600;
+  	width: 160px;
+  	padding: 10px;
+
+}
+button{
+	background-color: inherit;
+}
+.next-step .loader-gif{
+	background:url('../assets/icons/ellipsis.gif') no-repeat right center;
+	background-size: 30%;
+}
+.encourage img{
+	width: 50px;
+	 position: absolute;
+  	bottom: 15;
+  	right: 30;
+}
+.recent-activity{
+	padding-left: 20px;
+	padding-top: 2px;
+}
+
+.recent-activity h3{
+margin-top: 15px;
+}
+.recent-activity .date-left{
+margin-left: 80px;
+color: black;	
+font-weight: 600;
+}
+.recent-activity ul{
+	list-style: none;
+	margin-top: 15px;
+	padding: 0;
+}
+.recent-activity ul li{
+margin-top: 12px;
+vertical-align: middle;
+
+}
+.recent-activity ul li span{
+vertical-align: middle;
+
+}
+.recent-activity ul li img{
+margin-right: 10px;
+vertical-align: middle;
+width: 16px;
+}
+.recent-activity .activity-type{
+	color:#18A999;
+}
+.profile-pictures{
+	margin: 15px;
+	width: 60px;
+	height: auto;
+}
+.team-members h3{
+margin-top: 15px;
+}
+.calendar{
+	padding-left: 20px;
+	padding-top: 2px;
+}
+.calendar h3{
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.calendar ul{
+	list-style: none;
+	padding: 0;
+}
+.calendar ul li{
+	vertical-align: middle;
+}
+.calendar ul li span{
+	vertical-align: middle;
+
+}
+.calendar ul li img{
+	margin-right: 10px;
+	vertical-align: top;
+	width: 36px;
+}
+.team-members{
+	padding-left: 20px;
+	padding-top: 2px;
+	
+}
+.project-buzz{
+	color:white;
+	padding-top: 2px;	
+	padding-left: 20px;
+	padding-top: 1px;
+	background-color: #484349;
+}
+.project-buzz h3{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.meetname{
+	font-weight: 700;
+}
+.meetbottomtext{
+	font-size: 13px;
+	font-weight: 700;
+	color: #49c2b9;
+}
+.calenderevent{
+	display: inline-block;
+	margin-bottom: 18px;
+}
+.meetright{
+	margin-left: 52px;
+	color:#333;
+}
+
+.project-buzz {
+}
+
+.calendarprofilepic{
+	margin-left: 114px;
+}
+.calendarprofilepic2{
+	margin-left: 117px;
+}
+.right{
+    float: right;
+}
+
+.plantimg{
+        position: absolute;
+        z-index: 5;
+ }
+.showimg{
+        z-index: 1;
+ }
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+#notification{
+	display: none;
+	position: fixed;
+	background:#484349;
+	height: 50px;
+	bottom:0;
+	color:white;
+	right: 400px;
+	padding: 20px;	
+	font-size: 16px;
+	padding-bottom: 30px;
+
+}
+#notification span{
+	color:#109648;
+
+}
+.project-item .add-project{
+	background-color: #D5D5D5;
+	text-align: center;
+}
+.project-item .add-project h1{
+	color:#555151;
+	margin-top: 60px;
+
+}
+.recent-activity .avi{
+	margin-left: 152px;
+}
+.recent-activity .eden{
+	margin-left: 99px;
+}
+.recent-activity .valentine{
+	margin-left: 105px;
+}
+/*pre loader*/
+
+ .circle {
+            border-radius: 50%;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+               width: 120px;
+    height: 120px;
+    border: 20px solid white;
+        }
+
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+            background: url('../functions/preloader/spinnerfast.gif') 50% 50% no-repeat rgba(35, 35, 35, 0.86);
+            display: none;
+        }
+
+
+@media only screen and (max-width: 1000px) {
+	.component{
+		margin-top: 50px;
+	}
+
+
+}
+@media only screen and (max-width: 1200px) {
+	
+.project-card{
+		margin-bottom: 50px;
+	}
+
+}

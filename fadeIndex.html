@@ -1,0 +1,89 @@
+﻿<style>
+.right{
+    float: right;
+}
+
+    .plantimg{
+        position: absolute;
+        z-index: 5;
+    }
+    .showimg{
+        z-index: 1;
+    }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+                
+    <div class="plants">
+        <img class="plantimg showimg" id="1" src="1.png" />
+        <img class="plantimg backimg" id="0" src="1.png" />
+    </div>
+
+    <div class="right">
+
+        <button type="submit" id="submit" >Submit </button>
+        <button type="submit" id="lower" >Lower </button>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        console.log("i work");
+
+
+        var myVar = $(".showimg").eq(0).attr('id');
+        console.log(myVar);
+
+        $("#submit").click(function (e) {
+            var myVar = parseInt($(".showimg").eq(0).attr('id'));
+            var newVar = myVar + 1;
+            console.log(myVar);
+            e.preventDefault();
+            if(newVar<8){
+                $(".showimg")
+                        .delay(1000).fadeOut(0, function () {
+                            $(".showimg").attr('src', (newVar) + ".png");
+                            $(".showimg").eq(0).attr('id', newVar);
+                        })
+                        .fadeIn(200);
+
+                $(".backimg").delay(1010).fadeOut(500, function () {
+                    $(".backimg").attr('src', (newVar) + ".png");
+                    $(".backimg").eq(0).attr('id', newVar);
+                }).fadeIn(10);
+            }
+
+        });
+
+        $("#lower").click(function (e) {
+            var myVar = parseInt($(".showimg").eq(0).attr('id'));
+            var newVar = myVar - 1;
+            console.log(myVar);
+            e.preventDefault();
+            if(newVar<8){
+                $(".showimg")
+                        .delay(1000).fadeOut(0, function () {
+                    $(".showimg").attr('src', (newVar) + ".png");
+                    $(".showimg").eq(0).attr('id', newVar);
+                })
+                        .fadeIn(200);
+
+                $(".backimg").delay(1010).fadeOut(500, function () {
+                    $(".backimg").attr('src', (newVar) + ".png");
+                    $(".backimg").eq(0).attr('id', newVar);
+                }).fadeIn(10);
+            }
+
+        });
+
+
+    </script>
+</body>
+</html>

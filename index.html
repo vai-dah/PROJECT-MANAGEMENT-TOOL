@@ -1,0 +1,461 @@
+<html>
+<head>
+	<title>Omni.ai</title>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://fb.me/react-0.14.0.js"></script>
+	<script src="https://fb.me/react-dom-0.14.0.js"></script>
+	<script src="generateScore.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.25/browser.min.js"></script>
+</head>
+<body>
+	<div>
+	<div class="loader">
+    <div class="circle"></div>
+	</div>
+		<div id="main-page"></div>
+		<div id="notification">
+			<p><span>projectmanagement@gmail.com</span> just sended you an email regarding the Zara project</p>
+		</div>
+	</div>
+	<script type="text/babel">
+
+	var numOfProjects = 4;
+	var teamMembers = {};
+
+	// var getScore = setInterval(checkScore, 1000)
+	// function checkScore(){
+	// 	checkScore("omni", 10);
+	// }
+		var preloader = function (time) {
+        $(".loader").fadeIn("slow");
+        $(".loader").delay(time).fadeOut(500);
+    };
+
+	var AppScreen = React.createClass({
+
+		handleClickedProjectItem: function(update){
+			var that = this;
+			preloader(1000);
+			setTimeout(function(){
+				that.setState({isShowMain: update});},1600);
+
+		},
+		getInitialState: function(){
+			return{
+				isShowMain: true
+			}
+		},
+		render: function(){
+
+			return(
+
+				<div>
+
+					{this.state.isShowMain ? <MainDash handleClickedProjectItem={this.handleClickedProjectItem}/> :
+
+					<ProjDash handleClickedProjectItem={this.handleClickedProjectItem}/>}
+				</div>
+
+			)
+
+		}
+	});
+
+	var MainDash = React.createClass({
+
+		render: function(){
+
+			return(
+
+				<div>
+					<header>
+						<img onClick = {this.returnToHome} src="assets/logo.png" alt=""/>
+
+						<div className="title"><h1>PROJECTS</h1></div>
+					</header>
+					<div className="green-line"></div>
+					<main>
+						<div className="container">
+							<div className="row firstrow">
+								<ProjectItem handleClickedProjectItem={this.props.handleClickedProjectItem} plant="assets/1.png" name="ZARA"/>
+								<ProjectItem handleClickedProjectItem={this.props.handleClickedProjectItem} plant ="assets/deadplant.gif" name="BurgerKing App"/>
+							</div>
+							<div className="row">
+								<ProjectItem handleClickedProjectItem={this.props.handleClickedProjectItem} plant= "assets/5.png" name="Startup Landingpage"/>
+								<div onClick={this.handleClickProjectItem}>
+					<div className="project-item col-lg-6">
+						<PlantImage plant = {this.props.plant} />
+
+						<div className="project-card add-project">
+							<h1>ADD PROJECT</h1>
+						</div>
+					</div>
+				</div>
+							</div>
+						</div>
+					</main>
+				</div>
+
+			)
+
+		}
+	});
+
+	var ProjDash = React.createClass({
+
+		returnToHome: function(){
+			this.props.handleClickedProjectItem(true)
+		},
+		componentDidMount: function() {
+  			this.changePlant();
+  },
+
+		changePlant: function(){
+
+
+
+        var myVar = $(".showimg").eq(0).attr('id');
+
+        $("#encourage-btn").click(function (e) {
+        	$("#notification p").html("<span>Good Job!</span> Your reply is sent to yoannag@zaragroupisrael.com");
+        	$("#notification").css("right","500px")
+            var myVar = parseInt($(".showimg").eq(0).attr('id'));
+            var newVar = myVar + 1;
+            e.preventDefault();
+            if(newVar<8){
+            	$("#notification").slideDown();
+            	setTimeout(function(){$("#notification").slideUp()},4000)
+                $(".showimg")
+                        .delay(1000).fadeOut(0, function () {
+                            $(".showimg").attr('src', 'assets/'+ (newVar) + ".png");
+                            $(".showimg").eq(0).attr('id', newVar);
+                        })
+                        .fadeIn(200);
+
+                $(".backimg").delay(1010).fadeOut(500, function () {
+                    $(".backimg").attr('src', 'assets/'+(newVar) + ".png");
+                    $(".backimg").eq(0).attr('id', newVar);
+                }).fadeIn(10);
+            }
+
+        });
+          $(".main-plant").click(function (e) {
+          	$("#notification p").html("<span>valentineganansia@gmail.com</span> just sended you an email regarding the Zara project")
+            var myVar = parseInt($(".showimg").eq(0).attr('id'));
+            var newVar = myVar + 1;
+            e.preventDefault();
+                    	$("#notification").css("right","400px")
+
+            if(newVar<8){
+            	$("#notification").slideDown();
+            	setTimeout(function(){$("#notification").slideUp()},4000)
+                $(".showimg")
+                        .delay(1000).fadeOut(0, function () {
+                            $(".showimg").attr('src',  'assets/' + (newVar) + ".png");
+                            $(".showimg").eq(0).attr('id', newVar);
+                        })
+                        .fadeIn(200);
+
+                $(".backimg").delay(1010).fadeOut(500, function () {
+                    $(".backimg").attr('src',  'assets/' + (newVar) + ".png");
+                    $(".backimg").eq(0).attr('id', newVar);
+                }).fadeIn(10);
+            }
+
+        });
+
+        $("#lower").click(function (e) {
+            var myVar = parseInt($(".showimg").eq(0).attr('id'));
+            var newVar = myVar - 1;
+            e.preventDefault();
+            if(newVar<8){
+                $(".showimg")
+                        .delay(1000).fadeOut(0, function () {
+                    $(".showimg").attr('src',  'assets/' + (newVar) + ".png");
+                    $(".showimg").eq(0).attr('id', newVar);
+                })
+                        .fadeIn(200);
+
+                $(".backimg").delay(1010).fadeOut(500, function () {
+                    $(".backimg").attr('src', 'assets/' + (newVar) + ".png");
+                    $(".backimg").eq(0).attr('id', newVar);
+                }).fadeIn(10);
+            }
+
+        });
+
+		},
+
+		getDefaultProps: function(){
+			return{
+				ProjectInfo:{
+							title:"Kendama",
+							teamMembers: ["Gideon", "Valentine", "Eden", "Aviram"],
+							ProfilePics:["assets/profilepic/Gideon.png","assets/profilepic/Valentine.png","assets/profilepic/Eden.png","assets/profilepic/Aviram.png"]
+				},
+
+			}
+		},
+		render: function(){
+
+			var title = this.props.ProjectInfo.title;
+			return(
+					<div>
+						<header>
+						<img onClick={this.returnToHome} className = "icon-back" src="assets/icons/icon-back.png"/>
+
+							<img onClick={this.returnToHome} src="assets/logo.png" alt=""/>
+							<div className="title">
+								<h1>ZARA REDESIGN</h1>
+							</div>
+						</header>
+						<div className="green-line"></div>
+						<main>
+							<div className="container">
+								<div className="row firstrow">
+									<div className="col-md-4">
+										<div className="main-plant">
+											<div className="plants">
+										        <img className="plantimg showimg" id="1" src="assets/1.png" />
+										        <img className="plantimg backimg" id="0" src="assets/1.png" />
+   									</div>
+
+										</div>
+									</div>
+									<div className="col-md-8">
+										<NextStepComp />
+									</div>
+								</div>
+								<div className="row">
+									<div className="col-md-6">
+										<RecentActivity />
+									</div>
+									<div className="col-md-6">
+										<Calendar />
+									</div>
+								</div>
+								<div className="row">
+									<div className="col-md-6">
+										<ProjectBuzz />
+									</div>
+									<div className="col-md-6">
+										<TeamMembers picture={this.props.ProjectInfo.ProfilePics}/>
+									</div>
+								</div>
+							</div>
+						</main>
+					</div>
+				)
+		}
+	});
+
+	var PlantImage = React.createClass({
+		render: function(){
+
+			return(
+				<div className="plant">
+					<img src={this.props.plant} alt=""/>
+				</div>
+
+			)
+
+		}
+	});
+
+	var ProjectItem = React.createClass({
+		getDefaultProps: function(){
+			return {
+				// projectName: this.props.name
+			}
+		},
+		getInitialState: function(){
+			return{
+				projectProgress: 0.4,
+
+			}
+		},
+
+		handleClickProjectItem: function(e){
+			e.preventDefault();
+
+
+
+			this.props.handleClickedProjectItem(false);
+
+		},
+		render: function(){
+
+			return(
+
+				<div onClick={this.handleClickProjectItem}>
+					<div className="project-item col-lg-6">
+						<PlantImage plant = {this.props.plant} />
+
+						<div className="project-card">
+							<h2>{this.props.name}</h2>
+						</div>
+					</div>
+				</div>
+			)
+		}
+	});
+
+
+	var TeamMembers = React.createClass({
+
+		render:function(){
+			return(
+				<div className="team-members component">
+					<h3>Team Members</h3>
+					<div>
+						<img className="profile-pictures" src={this.props.picture[0]} alt="" />
+						<img className="profile-pictures" src={this.props.picture[1]} alt="" />
+						<img className="profile-pictures" src={this.props.picture[2]} alt="" />
+						<img className="profile-pictures" src={this.props.picture[3]} alt="" />
+						<img className="profile-pictures" src="./assets/addMember.png" alt="" />
+					</div>
+				</div>
+				)
+		}
+	});
+
+
+	var NextStepComp = React.createClass({
+	changeButton: function(e){
+
+	$(e.target).fadeOut(200);
+	setTimeout(function(){	$(".load").fadeIn(200);
+		},200)
+	setTimeout(function(){$(e.target).text("✓");
+	$(e.target).fadeIn(200);
+	$(".load").fadeOut(400);
+	}, 1500);
+	$(e.target).attr("disabled", "true");
+
+
+
+
+	},
+		render:function(){
+			return(
+			<div className="next-step component">
+				<h3>Next Step</h3>
+				<h4 className ="water">Water this plant</h4>
+				<h2>Eden has to respond to this email</h2>
+
+				<div className="email">
+					<img src="assets/email.png" alt="" />
+				</div>
+				<div className="encourage clearfix">
+				<button onClick={this.changeButton} id="encourage-btn">Send Reply</button>
+				<button onClick={this.changeButton} className="load"></button>
+				<img src="assets/profilepic/Eden.png" alt="" />
+
+				</div>
+
+
+			</div>
+			)
+		}
+
+	});
+
+	var RecentActivity = React.createClass({
+		render:function(){
+			return(
+			<div className="recent-activity component">
+				<h3>Recent Activity</h3>
+				<ul>
+				<li>
+					<span> <img src='assets/icons/docs.png' alt="" />
+					</span><span><strong>Gideon </strong>editited the <span className="activity-type">Google Docs</span> document </span><span className="date-left">2 days ago</span>
+				</li>
+
+				<li>
+					<span> <img src='assets/icons/gmail.png' alt="" />
+					</span><span><strong>Aviram </strong>answered Jack on <span className="activity-type">Gmail</span></span><span className="date-left avi">5 days ago</span>
+				</li>
+
+				<li>
+					<span> <img src='assets/icons/github.png' alt="" />
+					</span><span><strong>Eden </strong>push the project structre to  <span className="activity-type">Github</span> </span><span className="date-left eden">11/Jan/17</span>
+				</li>
+				<li>
+					<span> <img src='assets/icons/slack.png' alt="" />
+					</span><span><strong>Valentine </strong>created a new <span className="activity-type">Slack</span> channel </span><span className="date-left valentine">5/Jan/17</span>
+				</li>
+				</ul>
+			</div>
+			)
+		}
+
+	});
+	var ProjectBuzz = React.createClass({
+		render:function(){
+			return(
+			<div className="project-buzz component">
+				<h3>Project Buzz</h3>
+				<div>
+					<img src="assets/graph.png" alt="" />
+				</div>
+			</div>
+			)
+		}
+
+	});
+	var Calendar = React.createClass({
+		render:function(){
+			return(
+			<div className="calendar component">
+				<h3>AI Calendar</h3>
+				<ul>
+					<li>
+					<span> <img src='assets/icons/calendar2.png' alt="" />
+					</span>
+						<div className="calenderevent">
+							<span>Meeting with </span> <span className="meetname">Omer Goldberg</span><br/>
+							<span className="meetbottomtext meetleft">12/2/17 </span><span className="meetbottomtext meetright">Rotschild Blvd.</span>
+
+						</div>
+						<span> <img className="calendarprofilepic" src='assets/profilepic/Aviram.png' alt="" />
+					</span><span> <img src='assets/profilepic/Eden.png' alt="" />
+					</span>
+					</li>
+
+					<li>
+					<span> <img src='assets/icons/calendar1.png' alt="" />
+					</span>
+						<div className="calenderevent">
+							<span>Team meeting with </span> <span className="meetname">Chen Mv</span><br/>
+							<span className="meetbottomtext meetleft">20/2/17 </span><span className="meetbottomtext meetright">Herzl St. 16</span>
+
+						</div>
+						<span> <img className="calendarprofilepic2" src='assets/profilepic/Valentine.png' alt="" />
+					</span><span> <img src='assets/profilepic/Gideon.png' alt="" />
+					</span>
+					</li>
+
+				</ul>
+
+			</div>
+			)
+		}
+
+	});
+
+
+	ReactDOM.render(
+		<AppScreen />,
+		document.getElementById('main-page')
+	)
+
+	</script>
+
+
+
+</body>
+</html>
